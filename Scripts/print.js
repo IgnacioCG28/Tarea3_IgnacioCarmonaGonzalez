@@ -1,9 +1,9 @@
 const texto = document.getElementById("printTexto");
-import { tiempo } from "./time.js";
+import { tiempo, estaciones } from "./time.js";
 export function printSaludo(nombre, apellidos, fecha) {
 
     let nombreCompleto = nombre + " " + apellidos;
-
+    const [estacion, year] = estaciones(fecha);
     
 
     texto.innerHTML = `Buenos días, <strong>${nombre}</strong>
@@ -19,6 +19,14 @@ export function printSaludo(nombre, apellidos, fecha) {
      Tu nombre todo en <strong>MAYÚSCULAS</strong> es <strong>${nombreCompleto.toUpperCase()}</strong>.
      <br>
      Tu <strong>edad</strong> es <strong>${tiempo(fecha)}</strong> años.
+     <br>
+     Naciste un feliz día de <strong>${estacion}</strong> del año <strong>${year}</strong>
+     <br>
+     El <strong>coseno de 180</strong> es <strong>${Math.floor(Math.cos(180))}</strong>
+     <br>
+     El número mayor de <strong>(34, 67, 23, 75, 35, 19)</strong> es <strong>${Math.max(34, 67, 23, 75, 35, 19)}</strong>
+     <br>
+     Ejemplo de número aleatorio entre 0 y 100: <strong>${Math.floor(Math.random()*101)} </strong>
     `
 }
 
