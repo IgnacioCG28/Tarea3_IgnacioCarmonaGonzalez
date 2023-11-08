@@ -18,11 +18,11 @@ export function askApellidos() {
   let esTexto;
   do {
     apellidos = prompt("Escribe tus apellidos:");
-    esTexto = /^[A-Za-z]+\s+[A-Za-z]+$/i.test(apellidos);
+    esTexto = /^([A-Za-z]+( [A-Za-z]+)+)$/i.test(apellidos);
 
     if (!esTexto) {
       apellidos = prompt("Tus apellidos deben de estar compuesto de letras:");
-      esTexto = /^[A-Za-z]+\s+[A-Za-z]+$/i.test(apellidos);
+      esTexto = /^([A-Za-z]+( [A-Za-z]+)+)$/i.test(apellidos);
     }
   } while (!esTexto);
   return apellidos;
@@ -34,15 +34,11 @@ export function askFecha() {
 
   do {
     fecha = prompt("Escribe tu fecha de nacimiento con formato DD/MM/AAAA:");
-    esFecha = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|[1][0-2])\/[0-9]+$/i.test(
-      fecha
-    );
+    esFecha = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|[1][0-2])\/[0-9]+$/i.test(fecha);
 
     if (!esFecha) {
       fecha = prompt("Escriba en el formato dicho DD/MM/AAAA:");
-      esFecha = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|[1][0-2])\/[0-9]+$/i.test(
-        fecha
-      );
+      esFecha = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|[1][0-2])\/[0-9]+$/i.test(fecha);
     }
   } while (!esFecha);
   return fecha;
