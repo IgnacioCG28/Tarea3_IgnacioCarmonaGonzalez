@@ -1,21 +1,17 @@
 import { askNombre, askApellidos, askFecha } from "./userPrompts.js";
 import { printSaludo } from "./print.js";
 import { openNewWindow } from "./window.js";
+import { reset } from "./resetButton.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  
-  /*const nombre = askNombre();
+  const nombre = askNombre();
   const apellidos = askApellidos();
-  const fecha = askFecha();*/
-  
-  const nombre = "Nacho";
-  const apellidos = "Carmona Gonzalez";
-  const fecha = "30/07/2000";
+  const fecha = askFecha();
+
 
   printSaludo(nombre, apellidos, fecha);
 
- openNewWindow()
-  
+  openNewWindow();
+
+  reset();
 });
-
-

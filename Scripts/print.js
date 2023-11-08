@@ -34,7 +34,7 @@ export function printSaludo(nombre, apellidos, fecha) {
     Ejemplo de número aleatorio entre 0 y 100: <strong>${Math.floor(Math.random() * 101)}</strong>
     <br><br>
     <button type="button" id= "newWindow">Abrir Ventana</button>
-    <button type="button" id="Reset">Reiniciar</button>
+    <button type="button" id="reset">Reiniciar</button>
     `);
 document.close();
 
