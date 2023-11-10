@@ -14,22 +14,23 @@ export function tiempo(fecha) {
   return tiempo;
 }
 export function estaciones(fecha) {
-  let tiempo = fecha;
-  let estacion;
-  let [day, month, year] = tiempo.split("/");
+  const [day, month, year] = fecha.split("/").map(Number);
 
-  if (month === "12" || month === "01" || month === "02") {
-    estacion = "Invierno";
-  } else if (month === "03" || month === "04" || month === "05") {
-    estacion = "Primavera";
-  } else if (month === "06" || month === "07" || month === "08") {
-    estacion = "Verano";
-  } else if (month === "09" || month === "10" || month === "11") {
-    estacion = "Otoño";
-  } else {
-    estacion = "Mes no válido"; // Manejar el caso de un mes no válido (imposible?)
-  }
+  // Invertir el orden de día y mes para que sea MM/DD/YYYY
+  const formattedDate = `${month}/${day}/${year}`;
+
+  const d = new Date(formattedDate);
+
+var seasonArray = [
+    {name: 'Primavera', date: new Date(d.getFullYear(),2,(d.getFullYear() % 4 === 0) ? 19 : 20).getTime()},
+    {name: 'Verano', date: new Date(d.getFullYear(),5,(d.getFullYear() % 4 === 0) ? 20 : 21).getTime()},
+    {name: 'Otoño', date: new Date(d.getFullYear(),8,(d.getFullYear() % 4 === 0) ? 22 : 23).getTime()},
+    {name: 'Invierno', date: new Date(d.getFullYear(),11,(d.getFullYear() % 4 === 0) ? 20 : 21).getTime()}
+];
+
+const season = seasonArray.filter(({ date }) => date <= d).slice(-1)[0] || {name: "Invierno"}
+console.log(new Date(d).toLocaleDateString(), season.name); 
 
   
-  return [estacion, year];
+  return [season.name, d.getFullYear()];
 }
