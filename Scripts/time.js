@@ -27,8 +27,9 @@ export function estaciones(fecha) {
   } else if (month === "09" || month === "10" || month === "11") {
     estacion = "Otoño";
   } else {
-    estacion = "Mes no válido"; // Manejar el caso de un mes no válido
+    estacion = "Mes no válido"; // Manejar el caso de un mes no válido (imposible?)
   }
 
+  
   return [estacion, year];
 }
