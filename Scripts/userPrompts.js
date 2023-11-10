@@ -18,11 +18,11 @@ export function askApellidos() {
   let esTexto;
   do {
     apellidos = prompt("Escribe tus apellidos:");
-    esTexto = /^([A-Za-z]+( [A-Za-z]+)+)$/i.test(apellidos);
+    esTexto = /[a-zA-ZÀ-ÖØ-öø-ÿ\s]+/i.test(apellidos);
 
     if (!esTexto) {
       apellidos = prompt("Tus apellidos deben de estar compuesto de letras:");
-      esTexto = /^([A-Za-z]+( [A-Za-z]+)+)$/i.test(apellidos);
+      esTexto = /[a-zA-ZÀ-ÖØ-öø-ÿ\s]+/i.test(apellidos);
     }
   } while (!esTexto);
   return apellidos;
